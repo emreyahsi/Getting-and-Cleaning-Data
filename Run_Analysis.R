@@ -1,7 +1,7 @@
 # Step1. Merges the training and the test sets to create one data set.
-# setwd("D:/Coursera/data cleaning")
+setwd("C:/coursera/Getting-and-Cleaning-Data")
 trainData <- read.table("./data/train/X_train.txt")
-dim(trainData) # 7352*561
+dim(trainData) #7352*561
 head(trainData)
 trainLabel <- read.table("./data/train/y_train.txt")
 table(trainLabel)
@@ -46,7 +46,7 @@ names(joinLabel) <- "activity"
 names(joinSubject) <- "subject"
 cleanedData <- cbind(joinSubject, joinLabel, joinData)
 dim(cleanedData) # 10299*68
-write.table(cleanedData, "merged_data.txt") # write out the 1st dataset
+write.table(cleanedData, "Merged_Data.txt") # write out the 1st dataset
 
 # Step5. Creates a second, independent tidy data set with the average of 
 # each variable for each activity and each subject. 
@@ -68,7 +68,7 @@ for(i in 1:subjectLen) {
   }
 }
 head(result)
-write.table(result, "data_with_means.txt") # write out the 2nd dataset
+write.table(result, "Data_With_Means.txt",row.name=FALSE) # write out the 2nd dataset
 
 # data <- read.table("./data_with_means.txt")
 # data[1:12, 1:3]
